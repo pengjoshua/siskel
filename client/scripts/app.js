@@ -1,3 +1,4 @@
+
 var Movie = Backbone.Model.extend({
 
   defaults: {
@@ -39,6 +40,7 @@ var AppView = Backbone.View.extend({
   handleClick: function(e) {
     var field = $(e.target).val();
     this.collection.sortByField(field);
+    this.render();
   },
 
   render: function() {
@@ -72,8 +74,8 @@ var MovieView = Backbone.View.extend({
 
   handleClick: function() {
     // your code here
-    console.log(this);
     this.on('click', this.model.toggleLike());
+    this.render();
   },
 
   render: function() {
