@@ -1,3 +1,4 @@
+var ii = 0;
 
 var Movie = Backbone.Model.extend({
 
@@ -25,8 +26,17 @@ var Movies = Backbone.Collection.extend({
 
   sortByField: function(field) {
     // your code here
-    this.comparator = field;
-    this.sort();
+    ii++;
+    if (ii % 2 === 0) { 
+      this.comparator = field;
+      this.sort();
+    } else {
+      this.comparator = field;
+      this.sort();
+      this.models.reverse();
+    }
+    // this.comparator = field;
+    // this.sort();
   }
 
 });
